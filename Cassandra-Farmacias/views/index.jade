@@ -1,0 +1,10 @@
+extends layout
+
+block content
+	h1 Listado de todas las Farmacias
+	ul
+		each farmacia, i in farmacias
+			li 
+				a(href="/farmacia/#{farmacia.idfarmacia}") #{farmacia.nombrefarmacia}
+
+	a(href='/agregarFarmacia') Agregar Farmacia 

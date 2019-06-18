@@ -1,0 +1,18 @@
+extends layout
+
+block content
+	h1 Agregar Farmacia 
+	form(name='agregarfarmacia', method='POST', action='/agregarFarmacia')
+		div
+			input#inputnombre(type='text', placeholder='Nombre de Farmacia', name='nombrefarmacia')
+		div
+			input#inputdireccion(type='text',placeholder='Direccion de Farmacia', name='direccionfarmacia')
+		div
+			input#inputpropietario(type='text',placeholder='Propietario de Farmacia', name='propietario')
+		div
+			input#inputfarmaceutico(type='text',placeholder='Farmaceutico Encargado', name='farmaceuticoencargado')
+		div
+			button#btnSubmit(type='submit') Agregar
+	br
+	br		
+	a(href="/") Regresar

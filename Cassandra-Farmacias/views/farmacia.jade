@@ -1,0 +1,15 @@
+extends layout
+
+block content
+	h1 Detalle de Farmacias
+	a(href="/") Regresar
+	ul
+		li Nombre de Farmacia: #{nombrefarmacia}
+		li Direccion: #{direccionfarmacia}
+		li Propietario: #{propietario}
+		li Farmaceutico Encargado: #{farmaceuticoencargado}
+		li ID: #{idfarmacia}
+
+	a(class="editarFarmacia" href="/editarFarmacia/#{idfarmacia}") Editar
+	|  | 
+	a(class="borrarfarmacia" href="" data-id="#{idfarmacia}") Eliminar
