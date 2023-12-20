@@ -12,7 +12,7 @@
     "body-parser": "^1.20.1",
     "cassandra-driver": "^4.1.0",
     "cookie-parser": "^1.4.4",
-    "debug": "^4.1.1",
+    "debug": "^4.3.1",
     "dse-driver": "^1.2.0",
     "express": "^4.18.2",
     "jade": "^1.11.0",
