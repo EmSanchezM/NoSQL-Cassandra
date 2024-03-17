@@ -1,27 +1,31 @@
-var express = require('express');
-var router = express.Router();
-var cassandra = require('cassandra-driver');
+import cassandra from "cassandra-driver";
+import express from "express";
 
-var client = new cassandra.Client({contactPoints: ['127.0.0.1'],localDataCenter:'datacenter1'});
+const router = express.Router();
 
-client.connect({
-    function(err,result){
-        console.log('index: Cassandra Conectado');
-    }
+const client = new cassandra.Client({
+  contactPoints: ["127.0.0.1"],
+  localDataCenter: "datacenter1",
 });
 
-var obtenerTodasFarmacias = 'SELECT * FROM farmacianosql.Farmacias';
+client.connect({
+  function(err, result) {
+    console.log("index: Cassandra Conectado");
+  },
+});
 
-router.get('/', function(req,res){
-    client.execute(obtenerTodasFarmacias,[], function(err,result){
-        if(err){
-            res.status(404).send({msg: err});
-        }else{
-            res.render('index',{
-                farmacias: result.rows
-            })
-        }
-    });
+const obtenerTodasFarmacias = "SELECT * FROM farmacianosql.Farmacias";
+
+router.get("/", function (req, res) {
+  client.execute(obtenerTodasFarmacias, [], function (err, result) {
+    if (err) {
+      res.status(404).send({ msg: err });
+    } else {
+      res.render("index", {
+        farmacias: result.rows,
+      });
+    }
+  });
 });
 
 module.exports = router;
